@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 const Header = () => {
     return (
         <View style={styles.header}>
-            <Text style={styles.title}>New App</Text>
+            <Text style={styles.title}>News App</Text>
         </View>
     );
 };
@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1
     },
     title: {
-        marginTop: 20,
+        marginTop: 5,
         textAlign: "center",
         color: "white",
-        fontSize: 20
+        fontSize: 30
     }
 });
 export default Header;

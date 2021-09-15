@@ -9,12 +9,21 @@ import NewsDetails from "../screens/NewsDetails";
 // INITIALIZE STACK NAVIGATOR
 const Stack = createNativeStackNavigator();
 
+//
 function AppNavigator() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-                <Stack.Screen name="NewsList" component={NewsList} />
-                <Stack.Screen name="NewsDetails" component={NewsDetails} />
+                <Stack.Screen
+                    name="NewsList"
+                    component={NewsList}
+                    options={{ title: "All News" }}
+                />
+                <Stack.Screen
+                    name="NewsDetails"
+                    component={NewsDetails}
+                    options={{ title: "News Details" }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );

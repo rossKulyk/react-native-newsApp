@@ -1,24 +1,31 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
 
-const Card = () => {
+const Card = (props) => {
+    console.log("CARD PROPS> ", props);
+
     return (
-        <View style={styles.card}>
-            <View style={styles.imageContainer}>
-                <Image
-                    source={require("../../assets/news3.jpg")}
-                    style={styles.image}
-                />
+        <TouchableOpacity
+            style={styles.container}
+            onPress={() => props.navigation.navigate("NewsDetails")}
+        >
+            <View style={styles.card}>
+                <View style={styles.imageContainer}>
+                    <Image
+                        source={require("../../assets/news3.jpg")}
+                        style={styles.image}
+                    />
+                </View>
+                <View style={styles.title}>
+                    <Text>News Title</Text>
+                    <Fontisto name="favorite" size={24} color="#72bcd4" />
+                </View>
+                <View style={styles.decription}>
+                    <Text>News Description</Text>
+                </View>
             </View>
-            <View style={styles.title}>
-                <Text>News Title</Text>
-                <Fontisto name="favorite" size={24} color="#72bcd4" />
-            </View>
-            <View style={styles.decription}>
-                <Text>News Description</Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
