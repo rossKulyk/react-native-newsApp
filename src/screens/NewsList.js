@@ -8,7 +8,6 @@ const NewsList = (props) => {
     // console.log("NEWS-LIST PROPS> ", props);
     return (
         <View>
-            <Header />
             <Card navigation={props.navigation} />
         </View>
     );

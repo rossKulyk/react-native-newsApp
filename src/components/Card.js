@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
 
 const Card = (props) => {
-    console.log("CARD PROPS> ", props);
+    // console.log("CARD PROPS> ", props);
 
     return (
         <TouchableOpacity
