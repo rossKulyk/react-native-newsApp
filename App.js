@@ -1,15 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import Header from "./src/components/Header";
-import Card from "./src/components/Card";
+import NewsList from "./src/screens/NewsList";
+import AppNavigator from "./src/navigation/AppNavigator";
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Header />
-            <Card />
-        </View>
+        // <View>
+        //     <NewsList />
+        // </View>
+        <AppNavigator />
     );
 }
 
