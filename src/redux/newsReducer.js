@@ -33,6 +33,7 @@ export const fetchNews = () => {
     };
 };
 
+// REDUCER
 function newsReducer(state = initialState, action) {
     switch (action.type) {
         case GET_NEWS:

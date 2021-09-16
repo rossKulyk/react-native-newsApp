@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Fontisto } from "@expo/vector-icons";
 
 const Card = (props) => {
-    // console.log("CARD PROPS> ", props);
+    console.log("CARD PROPS> ", props);
 
     return (
         <TouchableOpacity
@@ -13,16 +13,25 @@ const Card = (props) => {
             <View style={styles.card}>
                 <View style={styles.imageContainer}>
                     <Image
-                        source={require("../../assets/news3.jpg")}
+                        // source={require("../../assets/news3.jpg")}
+                        source={{ uri: props.image }}
                         style={styles.image}
                     />
                 </View>
                 <View style={styles.title}>
-                    <Text>News Title</Text>
+                    <Text style={styles.titleText}>
+                        {props.title.length > 10
+                            ? props.title.slice(0, 30) + "..."
+                            : props.title}
+                    </Text>
                     <Fontisto name="favorite" size={24} color="#72bcd4" />
                 </View>
                 <View style={styles.decription}>
-                    <Text>News Description</Text>
+                    <Text>
+                        {props.description.length > 10
+                            ? props.description.slice(0, 125) + "..."
+                            : props.description}
+                    </Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -59,6 +68,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         marginTop: 10
+    },
+    titleText: {
+        fontSize: 15,
+        fontWeight: "bold"
     },
     decription: {
         height: "30%",

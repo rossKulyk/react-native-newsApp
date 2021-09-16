@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
     allNews: newsReducer
 });
 
-// Redux DevTools extension
+// REDUX DEVTOOLS EXTENSION
 const middleware = composeWithDevTools(applyMiddleware(thunk));
 
 export default createStore(rootReducer, middleware);

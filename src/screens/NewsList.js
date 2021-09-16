@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, FlatList } from "react-native";
 
 // ALTERNATIVE TO connect(); REACT-REDUX HOOKS
 // useSelector-> EQUIVALENT OF MAP STATE TO PROPS, SELECTS DATA FROM THE STATE
@@ -20,20 +20,30 @@ const NewsList = (props) => {
         dispatch(fetchNews());
     }, [dispatch]);
 
-    //
+    // SELECTS NEWS-DATA FROM THE STORE
     const news = useSelector((state) => {
         // console.log("STATE > ", state);
         return state.allNews.news;
     });
-    console.log("ALL-NEWS : ", news);
+    // console.log("ALL-NEWS : ", news);
 
     return (
-        <View>
-            <Card navigation={props.navigation} />
-        </View>
+        <FlatList
+            data={news.articles}
+            keyExtractor={(item) => item.url}
+            renderItem={({ item }) => {
+                // console.log("ITEM > ", item);
+                return (
+                    <Card
+                        navigation={props.navigation}
+                        title={item.title}
+                        image={item.urlToImage}
+                        description={item.description}
+                    />
+                );
+            }}
+        />
     );
 };
-
-const styles = StyleSheet.create({});
 
 export default NewsList;
