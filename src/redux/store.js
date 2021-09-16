@@ -5,7 +5,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import newsReducer from "./newsReducer";
 
 const rootReducer = combineReducers({
-    news: newsReducer
+    allNews: newsReducer
 });
 
 // Redux DevTools extension
