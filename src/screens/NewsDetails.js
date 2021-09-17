@@ -7,14 +7,14 @@ const NewsDetails = (props) => {
     // console.log("DETAILS PROPS > ", props.route);
 
     const { articleUrl } = props.route.params;
-    console.log("articleUrl > ", articleUrl);
+    // console.log("articleUrl > ", articleUrl);
 
     const foundArticle = useSelector((state) => {
         return state.allNews.news.articles.filter((article) => {
             return article.url === articleUrl;
         });
     });
-    console.log("FOUND URL > ", foundArticle[0].url);
+    // console.log("FOUND URL > ", foundArticle[0].url);
 
     return (
         <View style={styles.container}>

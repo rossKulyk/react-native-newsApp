@@ -20,18 +20,6 @@ const Card = (props) => {
     // console.log("FAV TOGGLE > ", favToggle);
 
     return (
-        // WORKS ))
-        // <TouchableOpacity
-        //     style={styles.container}
-        //     onPress={() => {
-        //         props.navigation.navigate("NewsDetails", {
-        //             description: description,
-        //             image: image,
-        //             title: title,
-        //             url: url
-        //         });
-        //     }}
-        // >
         <TouchableOpacity
             style={styles.container}
             onPress={() => {

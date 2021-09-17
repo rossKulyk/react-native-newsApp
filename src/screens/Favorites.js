@@ -28,6 +28,5 @@ const Favorites = (props) => {
         />
     );
 };
-// const styles = StyleSheet.create({});
 
 export default Favorites;
