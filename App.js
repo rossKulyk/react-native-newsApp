@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Provider } from "react-redux"; // WRAP APP COMPONENT SO STORE IS AVAILABLE TO ENTIRE APP
+import { Provider } from "react-redux";
 
 import NewsList from "./src/screens/NewsList";
 import AppNavigator from "./src/navigation/AppNavigator";

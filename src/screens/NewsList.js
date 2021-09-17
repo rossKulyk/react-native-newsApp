@@ -22,7 +22,6 @@ const NewsList = (props) => {
 
     // SELECTS NEWS-DATA FROM THE STORE
     const news = useSelector((state) => {
-        // console.log("STATE > ", state);
         return state.allNews.news;
     });
     // console.log("ALL-NEWS : ", news);

@@ -1,15 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { Fontisto } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
+import { Ionicons } from "@expo/vector-icons";
+import { useDispatch, useSelector } from "react-redux";
 
 // ACTION TO TRIGGER WITH useDISPATCH
 import { toggleFavorite } from "../redux/newsReducer";
 
 const Card = (props) => {
-    // console.log("CARD PROPS> ", props);
+    console.log("CARD PROPS> ", props);
 
     const dispatch = useDispatch();
+    console.log("CARD DISPATCH > ", dispatch);
+
+    const favToggle = useSelector((state) =>
+        state.allNews.favorites.some((article) => article.url === props.url)
+    );
+    console.log("FAV TOGGLE > ", favToggle);
 
     return (
         <TouchableOpacity
@@ -30,10 +36,10 @@ const Card = (props) => {
                             ? props.title.slice(0, 30) + "..."
                             : props.title}
                     </Text>
-                    <Fontisto
-                        name="favorite"
+                    <Ionicons
+                        name={favToggle ? "bookmark-sharp" : "bookmark-outline"}
                         size={24}
-                        color="#72bcd4"
+                        color="black"
                         onPress={() => {
                             dispatch(toggleFavorite(props.url));
                         }}

@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Fontisto } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
 import NewsList from "../screens/NewsList";
 import NewsDetails from "../screens/NewsDetails";
@@ -24,7 +25,7 @@ function HomeNavigator() {
             <Stack.Screen
                 name="NewsList"
                 component={NewsList}
-                options={{ title: "All News" }}
+                options={{ title: "Tech News" }}
             />
             <Stack.Screen
                 name="NewsDetails"
@@ -54,9 +55,10 @@ function TabsNavigator() {
                     if (route.name === "Home") {
                         iconName = "home";
                     } else if (route.name === "Favorites") {
-                        iconName = "favorite";
+                        iconName = "bookmarks";
                     }
-                    return <Fontisto name={iconName} size={22} />;
+                    return <Ionicons name={iconName} size={22} />;
+                    // return <Ionicons name="bookmarks" size={24} color="black" />
                 }
             })}
         >
