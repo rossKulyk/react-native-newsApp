@@ -7,26 +7,48 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFavorite } from "../redux/newsReducer";
 
 const Card = (props) => {
-    console.log("CARD PROPS> ", props);
+    // console.log("CARD PROPS> ", props);
+    const { description, image, title, url } = props;
+    // console.log("PROPS TO PAS >>", description, image, title, url);
 
     const dispatch = useDispatch();
-    console.log("CARD DISPATCH > ", dispatch);
 
+    // RETURN BOOLEAN IF FIND ARTICEL IN THE STATE
     const favToggle = useSelector((state) =>
         state.allNews.favorites.some((article) => article.url === props.url)
     );
-    console.log("FAV TOGGLE > ", favToggle);
+    // console.log("FAV TOGGLE > ", favToggle);
 
     return (
+        // WORKS ))
+        // <TouchableOpacity
+        //     style={styles.container}
+        //     onPress={() => {
+        //         props.navigation.navigate("NewsDetails", {
+        //             description: description,
+        //             image: image,
+        //             title: title,
+        //             url: url
+        //         });
+        //     }}
+        // >
         <TouchableOpacity
             style={styles.container}
-            onPress={() => props.navigation.navigate("NewsDetails")}
+            onPress={() => {
+                props.navigation.navigate("NewsDetails", {
+                    articleUrl: url
+                });
+            }}
         >
             <View style={styles.card}>
                 <View style={styles.imageContainer}>
                     <Image
                         // source={require("../../assets/news3.jpg")}
-                        source={{ uri: props.image }}
+                        source={{
+                            uri: props.image
+                                ? props.image
+                                : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cityofgraham.com%2Fcity-news%2Fnews%2F&psig=AOvVaw3l6__YV9gGBOTm3-PLn4sW&ust=1631967274808000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKjGn4j-hfMCFQAAAAAdAAAAABAD"
+                        }}
                         style={styles.image}
                     />
                 </View>
@@ -47,7 +69,7 @@ const Card = (props) => {
                 </View>
                 <View style={styles.decription}>
                     <Text>
-                        {props.description.length > 10
+                        {props.description && props.description.length > 10
                             ? props.description.slice(0, 125) + "..."
                             : props.description}
                     </Text>

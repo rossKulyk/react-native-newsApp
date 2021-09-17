@@ -9,6 +9,7 @@ const Favorites = (props) => {
 
     const favorites = useSelector((state) => state.allNews.favorites);
     // console.log("FAVORITES STATE > ", favorites);
+
     return (
         <FlatList
             data={favorites}
